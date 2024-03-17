@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation';
 import { db } from '@/lib/db';
 import { initialProfile } from '@/lib/initial-profile';
+import { Initialmodal } from '@/components/modals/initial-modal';
 
 const SetupPage = async (): Promise<JSX.Element> => {
 	const profile = await initialProfile();
@@ -19,7 +20,7 @@ const SetupPage = async (): Promise<JSX.Element> => {
 		return redirect(`/servers/${server.id}`);
 	}
 
-	return <div>Create a Server</div>;
+	return <Initialmodal />;
 };
 
 export default SetupPage;
