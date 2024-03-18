@@ -23,6 +23,8 @@ import {
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { FileUpload } from '@/components/file-upload';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
 const formSchema = z.object({
 	name: z.string().min(1, {
@@ -35,6 +37,8 @@ const formSchema = z.object({
 
 export const Initialmodal = (): React.ReactNode => {
 	const [isMounted, setIsMounted] = useState(false);
+
+	const router = useRouter();
 
 	useEffect(() => {
 		setIsMounted(true);
@@ -53,7 +57,15 @@ export const Initialmodal = (): React.ReactNode => {
 	const onSumbit = async (
 		values: z.infer<typeof formSchema>
 	): Promise<void> => {
-		console.log(values);
+		try {
+			await axios.post('/api/servers', values);
+
+			form.reset();
+			router.refresh();
+			window.location.reload();
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	if (!isMounted) return null;
@@ -114,7 +126,7 @@ export const Initialmodal = (): React.ReactNode => {
 						</div>
 						<DialogFooter className='bg-gray-100 px-6 py-4 '>
 							<Button variant='primary' disabled={isLoading}>
-								Creacte
+								Create
 							</Button>
 						</DialogFooter>
 					</form>
