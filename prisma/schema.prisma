@@ -44,15 +44,15 @@ model Server {
   updatedAt DateTime @updatedAt
 }
 
-enum MemberRol {
+enum MemberRole {
   ADMIN
   MODERATOR
   GUEST
 }
 
 model Member {
-  id   String    @id @default(auto()) @map("_id") @db.ObjectId
-  role MemberRol @default(GUEST)
+  id   String     @id @default(auto()) @map("_id") @db.ObjectId
+  role MemberRole @default(GUEST)
 
   profileId String  @db.ObjectId
   profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
