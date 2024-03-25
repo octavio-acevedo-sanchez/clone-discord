@@ -4,7 +4,7 @@ import { z } from 'zod';
 import { currentProfile } from '@/lib/current-profile';
 import { db } from '@/lib/db';
 import { NextResponse } from 'next/server';
-import { MemberRol } from '@prisma/client';
+import { MemberRole } from '@prisma/client';
 
 const serverSchema = z.object({
 	name: z.string().min(10).max(100),
@@ -45,7 +45,7 @@ export async function POST(req: Request): Promise<NextResponse> {
 					create: [
 						{
 							profileId: profile.id,
-							role: MemberRol.ADMIN
+							role: MemberRole.ADMIN
 						}
 					]
 				}
