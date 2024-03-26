@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server';
 export async function DELETE(
 	req: Request,
 	{ params }: { params: { memberId: string } }
-) {
+): Promise<NextResponse> {
 	try {
 		const profile = await currentProfile();
 		const { searchParams } = new URL(req.url);
