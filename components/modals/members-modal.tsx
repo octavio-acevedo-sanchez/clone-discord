@@ -44,7 +44,7 @@ const roleIconMap = {
 	ADMIN: <ShieldAlert className='h-4 w-4 ml-2 text-rose-500' />
 };
 
-export const MemebersModal = (): React.ReactNode => {
+export const MembersModal = (): React.ReactNode => {
 	const router = useRouter();
 	const { onOpen, isOpen, onClose, type, data } = useModal();
 	const [loadingId, setLoadingId] = useState('');
