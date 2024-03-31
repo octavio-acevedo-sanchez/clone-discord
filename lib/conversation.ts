@@ -6,7 +6,7 @@ export const getOrCreateConversation = async (
 	memberTwoId: string
 ): Promise<ConversationWithMembersWithProfiles | null> => {
 	let conversation =
-		(await findConversation(memberOneId, memberTwoId)) ||
+		(await findConversation(memberOneId, memberTwoId)) ??
 		(await findConversation(memberTwoId, memberOneId));
 
 	if (!conversation) {
