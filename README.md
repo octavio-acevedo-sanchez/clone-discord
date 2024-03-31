@@ -1,4 +1,4 @@
-# Next.js 14 - AI SaaS
+# Next.js 14 - Discord Clone
 
 Discord Clone application, uses TypeScript (StandardJS), Tailwind + Shadcn/UI, MongoDB, the application only has basic functionalities. This project is a test one, it was made based on https://github.com/AntonioErdeljac/next13-discord-clone.
 
